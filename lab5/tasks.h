@@ -13,31 +13,31 @@ struct Toy {
 
 class Tasks {
 public:
-    // Задание 1
+    // Р—Р°РґР°РЅРёРµ 1
     static void generateBinaryFile(const std::string& fileName, int count, int minVal, int maxVal);
     static int findDifference(const std::string& fileName);
 
-    // Задание 2
+    // Р—Р°РґР°РЅРёРµ 2
     static void copyToMatrix(const std::string& fileName, int n);
 
-    // Задание 3
+    // Р—Р°РґР°РЅРёРµ 3
     static void generateToyFile(const std::string& fileName, int count);
     static void findExpensiveToys(const std::string& fileName, double k);
 
-    // Задание 4
+    // Р—Р°РґР°РЅРёРµ 4
     static void generateTextFile(const std::string& fileName, int count, int minVal, int maxVal);
     static int countMaxOccurrences(const std::string& fileName);
 
-    // Задание 5
+    // Р—Р°РґР°РЅРёРµ 5
     static int countEvenNumbers(const std::string& fileName);
 
-    // Задание 6
+    // Р—Р°РґР°РЅРёРµ 6
     static void filterLinesContaining(const std::string& inputFile, const std::string& outputFile, const std::string& substring);
 
 
-    //просмотр файлов
-    static void viewBinaryFile(const std::string& fileName);  // Для числовых файлов
-    static void viewToyFile(const std::string& fileName);     // Для файлов с игрушками
+    //РїСЂРѕСЃРјРѕС‚СЂ С„Р°Р№Р»РѕРІ
+    static void viewBinaryFile(const std::string& fileName);  // Р”Р»СЏ С‡РёСЃР»РѕРІС‹С… С„Р°Р№Р»РѕРІ
+    static void viewToyFile(const std::string& fileName);     // Р”Р»СЏ С„Р°Р№Р»РѕРІ СЃ РёРіСЂСѓС€РєР°РјРё
 };
 
 #endif // TASKS_H
