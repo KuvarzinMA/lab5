@@ -3,21 +3,21 @@
 
 int main() {
     setlocale(LC_ALL, "RUSSIAN");
-    // Примеры вызова методов
+    // РџСЂРёРјРµСЂС‹ РІС‹Р·РѕРІР° РјРµС‚РѕРґРѕРІ
    
     Tasks::generateBinaryFile("data1.bin", 20, 1, 100);
-    std::cout << "Разность: " << Tasks::findDifference("data1.bin") << std::endl;
+    std::cout << "Р Р°Р·РЅРѕСЃС‚СЊ: " << Tasks::findDifference("data1.bin") << std::endl;
 
     Tasks::copyToMatrix("data1.bin", 4);
 
     Tasks::generateToyFile("toys.bin", 10);
     Tasks::findExpensiveToys("toys.bin", 100);
     Tasks::generateTextFile("data4.txt", 20, 1, 100);
-    std::cout << "Количество вхождений максимального элемента: " << Tasks::countMaxOccurrences("data4.txt") << std::endl;
+    std::cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ РІС…РѕР¶РґРµРЅРёР№ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: " << Tasks::countMaxOccurrences("data4.txt") << std::endl;
 
-    std::cout << "Количество четных чисел: " << Tasks::countEvenNumbers("data4.txt") << std::endl;
+    std::cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ С‡РµС‚РЅС‹С… С‡РёСЃРµР»: " << Tasks::countEvenNumbers("data4.txt") << std::endl;
 
-    Tasks::filterLinesContaining("data6.txt", "output.txt", "форма");
+    Tasks::filterLinesContaining("data6.txt", "output.txt", "С„РѕСЂРјР°");
     Tasks::viewBinaryFile("data1.bin");
     Tasks::viewToyFile("toys.bin");
 
