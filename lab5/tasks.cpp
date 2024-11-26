@@ -8,7 +8,7 @@
 
 using namespace std;
 
-// Вспомогательный метод для генерации случайных чисел
+// Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Р№ РјРµС‚РѕРґ РґР»СЏ РіРµРЅРµСЂР°С†РёРё СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР»
 int randomInt(int min, int max) {
     random_device rd;
     mt19937 gen(rd());
@@ -16,7 +16,7 @@ int randomInt(int min, int max) {
     return dis(gen);
 }
 
-// Задание 1
+// Р—Р°РґР°РЅРёРµ 1
 void Tasks::generateBinaryFile(const string& fileName, int count, int minVal, int maxVal) {
     ofstream file(fileName, ios::binary);
     for (int i = 0; i < count; ++i) {
@@ -37,7 +37,7 @@ int Tasks::findDifference(const string& fileName) {
     return maxVal - minVal;
 }
 
-// Задание 2
+// Р—Р°РґР°РЅРёРµ 2
 void Tasks::copyToMatrix(const string& fileName, int n) {
     ifstream file(fileName, ios::binary);
     vector<int> data;
@@ -47,7 +47,7 @@ void Tasks::copyToMatrix(const string& fileName, int n) {
     }
     file.close();
 
-    // Формируем квадратную матрицу
+    // Р¤РѕСЂРјРёСЂСѓРµРј РєРІР°РґСЂР°С‚РЅСѓСЋ РјР°С‚СЂРёС†Сѓ
     vector<vector<int>> matrix(n, vector<int>(n, 0));
     int maxVal = INT_MIN;
     size_t index = 0;
@@ -60,7 +60,7 @@ void Tasks::copyToMatrix(const string& fileName, int n) {
         }
     }
 
-    // Заменяем максимальные значения на 0
+    // Р—Р°РјРµРЅСЏРµРј РјР°РєСЃРёРјР°Р»СЊРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РЅР° 0
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (matrix[i][j] == maxVal) {
@@ -69,7 +69,7 @@ void Tasks::copyToMatrix(const string& fileName, int n) {
         }
     }
 
-    // Вывод матрицы
+    // Р’С‹РІРѕРґ РјР°С‚СЂРёС†С‹
     for (const auto& row : matrix) {
         for (int val : row) {
             cout << val << " ";
@@ -78,7 +78,7 @@ void Tasks::copyToMatrix(const string& fileName, int n) {
     }
 }
 
-// Задание 3
+// Р—Р°РґР°РЅРёРµ 3
 void Tasks::generateToyFile(const string& fileName, int count) {
     ofstream file(fileName, ios::binary);
     for (int i = 0; i < count; ++i) {
@@ -120,7 +120,7 @@ void Tasks::findExpensiveToys(const string& fileName, double k) {
 }
 
 
-// Задание 4
+// Р—Р°РґР°РЅРёРµ 4
 void Tasks::generateTextFile(const string& fileName, int count, int minVal, int maxVal) {
     ofstream file(fileName);
     for (int i = 0; i < count; ++i) {
@@ -148,7 +148,7 @@ int Tasks::countMaxOccurrences(const string& fileName) {
     return count;
 }
 
-// Задание 5
+// Р—Р°РґР°РЅРёРµ 5
 int Tasks::countEvenNumbers(const string& fileName) {
     ifstream file(fileName);
     int num, count = 0;
@@ -162,7 +162,7 @@ int Tasks::countEvenNumbers(const string& fileName) {
     return count;
 }
 
-// Задание 6
+// Р—Р°РґР°РЅРёРµ 6
 void Tasks::filterLinesContaining(const string& inputFile, const string& outputFile, const string& substring) {
     ifstream inFile(inputFile);
     ofstream outFile(outputFile);
@@ -176,15 +176,15 @@ void Tasks::filterLinesContaining(const string& inputFile, const string& outputF
     inFile.close();
     outFile.close();
 }
-// просмотр файлов
+// РїСЂРѕСЃРјРѕС‚СЂ С„Р°Р№Р»РѕРІ
 void Tasks::viewBinaryFile(const std::string& fileName) {
     std::ifstream file(fileName, std::ios::binary);
     if (!file.is_open()) {
-        std::cerr << "Ошибка: Не удалось открыть файл " << fileName << " для просмотра." << std::endl;
+        std::cerr << "РћС€РёР±РєР°: РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» " << fileName << " РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР°." << std::endl;
         return;
     }
 
-    std::cout << "Содержимое бинарного файла \"" << fileName << "\":" << std::endl;
+    std::cout << "РЎРѕРґРµСЂР¶РёРјРѕРµ Р±РёРЅР°СЂРЅРѕРіРѕ С„Р°Р№Р»Р° \"" << fileName << "\":" << std::endl;
     int value;
     while (file.read(reinterpret_cast<char*>(&value), sizeof(value))) {
         std::cout << value << " ";
@@ -194,33 +194,33 @@ void Tasks::viewBinaryFile(const std::string& fileName) {
     file.close();
 }
 
-// Метод для просмотра файлов с игрушками
+// РњРµС‚РѕРґ РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР° С„Р°Р№Р»РѕРІ СЃ РёРіСЂСѓС€РєР°РјРё
 void Tasks::viewToyFile(const std::string& fileName) {
     std::ifstream file(fileName, std::ios::binary);
     if (!file.is_open()) {
-        std::cerr << "Ошибка: Не удалось открыть файл \"" << fileName << "\" для просмотра." << std::endl;
+        std::cerr << "РћС€РёР±РєР°: РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» \"" << fileName << "\" РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР°." << std::endl;
         return;
     }
 
-    std::cout << "Содержимое файла игрушек \"" << fileName << "\":" << std::endl;
+    std::cout << "РЎРѕРґРµСЂР¶РёРјРѕРµ С„Р°Р№Р»Р° РёРіСЂСѓС€РµРє \"" << fileName << "\":" << std::endl;
 
-    size_t nameLength;  // Длина имени
+    size_t nameLength;  // Р”Р»РёРЅР° РёРјРµРЅРё
     while (file.read(reinterpret_cast<char*>(&nameLength), sizeof(nameLength))) {
-        // Считываем имя игрушки
+        // РЎС‡РёС‚С‹РІР°РµРј РёРјСЏ РёРіСЂСѓС€РєРё
         std::string name(nameLength, '\0');
         file.read(&name[0], nameLength);
 
-        // Считываем остальные поля структуры
+        // РЎС‡РёС‚С‹РІР°РµРј РѕСЃС‚Р°Р»СЊРЅС‹Рµ РїРѕР»СЏ СЃС‚СЂСѓРєС‚СѓСЂС‹
         double price;
         int minAge, maxAge;
         file.read(reinterpret_cast<char*>(&price), sizeof(price));
         file.read(reinterpret_cast<char*>(&minAge), sizeof(minAge));
         file.read(reinterpret_cast<char*>(&maxAge), sizeof(maxAge));
 
-        // Вывод данных на экран
-        std::cout << "Название: " << name
-            << ", Цена: " << price
-            << ", Возраст: " << minAge << "-" << maxAge
+        // Р’С‹РІРѕРґ РґР°РЅРЅС‹С… РЅР° СЌРєСЂР°РЅ
+        std::cout << "РќР°Р·РІР°РЅРёРµ: " << name
+            << ", Р¦РµРЅР°: " << price
+            << ", Р’РѕР·СЂР°СЃС‚: " << minAge << "-" << maxAge
             << std::endl;
     }
 
