@@ -1,6 +1,8 @@
-#include "Tasks.h"
+#include "tasks.h"
 #include <iostream>
 #include <fstream>
+#include <climits>
+#include <cstring>
 #include <vector>
 #include <random>
 #include <algorithm>
@@ -40,20 +42,28 @@ int Tasks::findDifference(const string& fileName) {
 // Задание 2
 void Tasks::copyToMatrix(const string& fileName, int n) {
     ifstream file(fileName, ios::binary);
-    vector<int> data;
+
+    // Максимальное количество чисел в файле, которое мы можем прочитать
+    const int maxDataSize = n * n;
+    int data[maxDataSize];  // Статический массив для хранения данных
     int num;
-    while (file.read(reinterpret_cast<char*>(&num), sizeof(num))) {
-        data.push_back(num);
+    int index = 0;
+
+    // Чтение данных из файла
+    while (file.read(reinterpret_cast<char*>(&num), sizeof(num)) && index < maxDataSize) {
+        data[index++] = num;
     }
     file.close();
 
     // Формируем квадратную матрицу
-    vector<vector<int>> matrix(n, vector<int>(n, 0));
+    int matrix[n][n];  // Статический двумерный массив
+    memset(matrix, 0, sizeof(matrix));  // Инициализация нулями
+
     int maxVal = INT_MIN;
-    size_t index = 0;
+    index = 0;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (index < data.size()) {
+            if (index < maxDataSize) {
                 matrix[i][j] = data[index++];
                 maxVal = max(maxVal, matrix[i][j]);
             }
@@ -70,9 +80,9 @@ void Tasks::copyToMatrix(const string& fileName, int n) {
     }
 
     // Вывод матрицы
-    for (const auto& row : matrix) {
-        for (int val : row) {
-            cout << val << " ";
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            cout << matrix[i][j] << " ";
         }
         cout << endl;
     }
@@ -219,9 +229,9 @@ void Tasks::viewToyFile(const std::string& fileName) {
 
         // Вывод данных на экран
         std::cout << "Название: " << name
-            << ", Цена: " << price
-            << ", Возраст: " << minAge << "-" << maxAge
-            << std::endl;
+                  << ", Цена: " << price
+                  << ", Возраст: " << minAge << "-" << maxAge
+                  << std::endl;
     }
 
     file.close();
